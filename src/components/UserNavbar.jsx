@@ -21,20 +21,19 @@ export default function UserNavbar() {
           <img src={LOGO_SRC} alt="MastoRide logo" className="mr-logo" />
         </Link>
 
-        {/* User-specific menu */}
-        <nav className="mr-links" aria-label="User Navigation">
+        {/* User Menu */}
+        <nav className="mr-links">
           <Link to="/user/profile" className="mr-link">Profile</Link>
           <Link to="/user/book-ride" className="mr-link">Book a Ride</Link>
           <Link to="/user/previous-rides" className="mr-link">History</Link>
         </nav>
 
-
-        {/* Right actions */}
+        {/* Sign Out */}
         <div className="mr-actions">
           <div className="mr-admin-chip">
             <span className="mr-email">{user?.email}</span>
             <button onClick={signOut} className="mr-btn mr-btn-danger">
-              Sign out
+              Sign Out
             </button>
           </div>
         </div>
