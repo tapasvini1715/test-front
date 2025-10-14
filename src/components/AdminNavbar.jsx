@@ -27,7 +27,7 @@ export default function AdminNavbar() {
           <Link to="/admin/bookings" className="mr-link">Bookings</Link>
         </nav>
 
-        {/* Right side */}
+        {/* Right section */}
         <div className="mr-actions">
           <div className="mr-admin-chip">
             <span className="mr-email">{admin?.email || "admin@mastoride.com"}</span>
