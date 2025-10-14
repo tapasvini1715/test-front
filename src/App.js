@@ -13,6 +13,17 @@ import Signup from "./pages/Signup";
 import FAQ from "./pages/FAQ";
 import ForgotPassword from "./pages/ForgotPassword";
 
+ /*Vini code Starts*/
+import BookingRecords from "./pages/admin/BookingRecords";
+import Manage from "./pages/admin/Manage";
+import Dashboard from "./pages/user/Dashboard";
+import Profile from "./pages/user/Profile";
+import About from "./pages/user/About";
+import PreviousRides from "./pages/user/PreviousRides";
+ /*Vini code Ends*/
+
+
+
 // User pages
 import UserDashboard from "./pages/user/UserDashboard";
 import BookRide from "./pages/user/BookRide"; // ✅ NEW
@@ -48,6 +59,25 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+
+            /*Vini code Starts*/
+
+            <Route path="/admin/bookings" element={<BookingRecords />} />
+            <Route path="/admin/manage" element={<Manage />} />
+            <Route path="/user/dashboard" element={<Dashboard />} />
+
+
+            {/* Admin pages */}
+            <Route path="/admin/bookings" element={<BookingRecords />} />
+            <Route path="/admin/manage" element={<Manage />} />
+
+            {/* User pages */}
+            <Route path="/user/dashboard" element={<Dashboard />} />
+            <Route path="/user/profile" element={<Profile />} />
+            <Route path="/user/about" element={<About />} />
+            <Route path="/user/previous-rides" element={<PreviousRides />} />
+
+           /*Vini code Ends*/ 
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />
