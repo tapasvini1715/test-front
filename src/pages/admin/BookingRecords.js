@@ -1,32 +1,41 @@
 import React from "react";
 
 export default function BookingRecords() {
-  const bookingData = [
-    { id: 1, customer: "John Doe", ride: "NYC - Boston", paymentType: "Credit Card", amount: "$120" },
-    { id: 2, customer: "Alice Smith", ride: "LA - SF", paymentType: "PayPal", amount: "$150" },
+  // Dummy booking data
+  const records = [
+    { id: 1, user: "John Doe", amount: 25, type: "Credit Card" },
+    { id: 2, user: "Jane Smith", amount: 18, type: "Cash" },
+    { id: 3, user: "Arjun K", amount: 22, type: "UPI" },
   ];
 
+  const totalBookings = records.length;
+  const totalRevenue = records.reduce((sum, r) => sum + r.amount, 0);
+
   return (
-    <div className="page-container">
-      <h2>Booking & Payment Records</h2>
-      <table className="data-table">
+    <div className="mr-section container">
+      <h2 className="mr-page-title">Booking & Payment Records</h2>
+
+      <div className="mr-card">
+        <p><strong>Total Bookings:</strong> {totalBookings}</p>
+        <p><strong>Total Revenue:</strong> ${totalRevenue}</p>
+      </div>
+
+      <table className="mr-table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Customer</th>
-            <th>Ride</th>
-            <th>Payment Type</th>
+            <th>User</th>
             <th>Amount</th>
+            <th>Payment Type</th>
           </tr>
         </thead>
         <tbody>
-          {bookingData.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.customer}</td>
-              <td>{item.ride}</td>
-              <td>{item.paymentType}</td>
-              <td>{item.amount}</td>
+          {records.map((r) => (
+            <tr key={r.id}>
+              <td>{r.id}</td>
+              <td>{r.user}</td>
+              <td>${r.amount}</td>
+              <td>{r.type}</td>
             </tr>
           ))}
         </tbody>

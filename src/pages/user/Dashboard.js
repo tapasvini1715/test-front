@@ -13,7 +13,7 @@ export default function Dashboard() {
   return (
     <>
       <UserNavbar />
-      <div className="mr-section container">
+      <div className="user-page">
         <h2 className="mr-page-title">User Dashboard</h2>
 
         <div className="mr-book-ride">

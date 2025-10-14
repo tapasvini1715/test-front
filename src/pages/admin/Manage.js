@@ -1,29 +1,31 @@
 import React from "react";
+import AdminNavbar from "../../components/AdminNavbar";
+import Footer from "../../components/Footer";
 
 export default function Manage() {
+  // Dummy data for now
   const stats = {
-    totalUsers: 248,
-    totalRides: 583,
-    activeUsers: 187,
+    users: 128,
+    rides: 342,
   };
 
   return (
-    <div className="page-container">
-      <h2>Manage Overview</h2>
-      <div className="stats-grid">
-        <div className="stat-card">
-          <h3>Total Users</h3>
-          <p>{stats.totalUsers}</p>
-        </div>
-        <div className="stat-card">
-          <h3>Total Rides</h3>
-          <p>{stats.totalRides}</p>
-        </div>
-        <div className="stat-card">
-          <h3>Active Users</h3>
-          <p>{stats.activeUsers}</p>
+    <>
+      <div className="admin-dashboard mr-section container">
+        <h2 className="mr-page-title">Admin Dashboard</h2>
+
+        <div className="mr-grid">
+          <div className="mr-card stat-card">
+            <h3>Total Users</h3>
+            <p className="stat-value">{stats.users}</p>
+          </div>
+
+          <div className="mr-card stat-card">
+            <h3>Total Rides</h3>
+            <p className="stat-value">{stats.rides}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

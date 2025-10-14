@@ -6,12 +6,12 @@ export default function UserLayout({ children }) {
   return (
     <div className="user-layout">
       <UserNavbar />
-      <main className="user-content">{children}</main>
+
+      <div className="user-main">
+        <div className="user-container">{children}</div>
+      </div>
+
       <Footer />
     </div>
   );
 }
-
-
-
-
