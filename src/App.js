@@ -14,6 +14,7 @@ import FAQ from "./pages/FAQ";
 import ForgotPassword from "./pages/ForgotPassword";
 
  /*Vini code Starts*/
+import UserLayout from "./layouts/UserLayout";
 import BookingRecords from "./pages/admin/BookingRecords";
 import Manage from "./pages/admin/Manage";
 import Dashboard from "./pages/user/Dashboard";
@@ -118,7 +119,52 @@ export default function App() {
                 </AdminRoute>
               }
             />
+
+
+            {/* Inside Routes */}
+
+            <Route
+  path="/user/dashboard"
+  element={
+    <UserLayout>
+      <Dashboard />
+    </UserLayout>
+  }
+/>
+
+<Route
+  path="/user/profile"
+  element={
+    <UserLayout>
+      <Profile />
+    </UserLayout>
+  }
+/>
+
+<Route
+  path="/user/book-ride"
+  element={
+    <UserLayout>
+      <BookRide />
+    </UserLayout>
+  }
+/>
+
+<Route
+  path="/user/previous-rides"
+  element={
+    <UserLayout>
+      <PreviousRides />
+    </UserLayout>
+  }
+/>
+
+
+
           </Route>
+
+
+
 
           {/* Catch-all */}
           <Route path="*" element={<Navigate to="/" replace />} />
