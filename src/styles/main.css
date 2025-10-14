@@ -1,20 +1,47 @@
-.mr-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.mr-card {
-  text-align: center;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+.mr-book-ride {
   background: var(--mr-bg-card, #fff);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-  transition: transform 0.2s ease;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.mr-card:hover {
-  transform: translateY(-3px);
+.mr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mr-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.mr-form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.mr-form-group input {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.mr-btn {
+  align-self: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  background-color: var(--mr-primary, #f4b400);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #000;
+  transition: background-color 0.2s ease;
+}
+
+.mr-btn:hover {
+  background-color: var(--mr-primary-dark, #e09a00);
 }

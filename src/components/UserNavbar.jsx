@@ -23,9 +23,11 @@ export default function UserNavbar() {
 
         {/* User-specific menu */}
         <nav className="mr-links" aria-label="User Navigation">
+          <Link to="/user/profile" className="mr-link">Profile</Link>
           <Link to="/user/book-ride" className="mr-link">Book a Ride</Link>
           <Link to="/user/previous-rides" className="mr-link">History</Link>
         </nav>
+
 
         {/* Right actions */}
         <div className="mr-actions">
