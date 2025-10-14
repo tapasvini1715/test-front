@@ -59,7 +59,7 @@ export default function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
 
-            /*Vini code Starts*/
+            {/*Vini code Starts*/}
 
             <Route path="/admin/bookings" element={<BookingRecords />} />
             <Route path="/admin/manage" element={<Manage />} />
@@ -76,7 +76,7 @@ export default function App() {
             <Route path="/user/about" element={<UserAbout />} />
             <Route path="/user/previous-rides" element={<PreviousRides />} />
 
-           /*Vini code Ends*/ 
+           {/*Vini code Ends*/}
 
             {/* Auth */}
             <Route path="/login" element={<Login />} />
