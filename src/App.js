@@ -50,7 +50,7 @@ export default function App() {
     <ToastProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public Layout */}
+          {/* 🌐 Public Layout */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -63,7 +63,7 @@ export default function App() {
             <Route path="/signup" element={<Signup />} />
           </Route>
 
-          {/* ✅ User Layout with Protected Routes */}
+          {/* 👤 User Layout with Protected Routes */}
           <Route
             path="/user/dashboard"
             element={
@@ -115,36 +115,43 @@ export default function App() {
             }
           />
 
-          {/* ✅ Admin Layout with Protected Routes */}
+          {/* 🛠️ Admin Layout with Protected Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
+
           <Route
             path="/admin"
             element={
               <AdminRoute>
-                <AdminDashboard />
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/admin/manage"
-            element={
-              <AdminRoute>
-                <Manage />
-                </AdminLayout>
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/admin/bookings"
-            element={
-              <AdminRoute>
-                <BookingRecords />
+                <AdminLayout>
+                  <AdminDashboard />
                 </AdminLayout>
               </AdminRoute>
             }
           />
 
-          {/* Catch-all */}
+          <Route
+            path="/admin/manage"
+            element={
+              <AdminRoute>
+                <AdminLayout>
+                  <Manage />
+                </AdminLayout>
+              </AdminRoute>
+            }
+          />
+
+          <Route
+            path="/admin/bookings"
+            element={
+              <AdminRoute>
+                <AdminLayout>
+                  <BookingRecords />
+                </AdminLayout>
+              </AdminRoute>
+            }
+          />
+
+          {/* 🧭 Catch-all Redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
