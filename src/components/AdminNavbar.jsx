@@ -1,5 +1,4 @@
 import React from "react";
-import AdminNavbar from "../../components/AdminNavbar";
 import { Link, useNavigate } from "react-router-dom";
 import { clearUser, getUser } from "../utils/session";
 
