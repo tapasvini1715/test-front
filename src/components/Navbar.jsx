@@ -30,10 +30,19 @@ export default function Navbar() {
           <NavLink to="/services" className="mr-link">Services</NavLink>
           <NavLink to="/pricing" className="mr-link">Pricing</NavLink>
           <NavLink to="/contact" className="mr-link">Contact us</NavLink>
+
+          {/* Dashboard/Manage links */}
+          {isUserLoggedIn && (
+            <NavLink to="/user/dashboard" className="mr-link">Dashboard</NavLink>
+          )}
+          {isAdmin && (
+            <NavLink to="/admin/manage" className="mr-link">Manage</NavLink>
+          )}
         </nav>
 
         {/* Right actions */}
         <div className="mr-actions">
+          {/* Show login buttons only if no one is logged in */}
           {!user && (
             <>
               <Link to="/login" className="mr-btn mr-btn-ghost">Log in</Link>
@@ -41,14 +50,16 @@ export default function Navbar() {
               <Link to="/admin/login" className="mr-btn mr-btn-warn">Log in as Admin</Link>
             </>
           )}
-          
+
+          {/* User info when logged in */}
           {isUserLoggedIn && (
             <div className="mr-admin-chip">
               <span className="mr-email">{user.email}</span>
               <button onClick={signOut} className="mr-btn mr-btn-danger">Sign out</button>
             </div>
           )}
-          
+
+          {/* Admin info when logged in */}
           {isAdmin && (
             <div className="mr-admin-chip">
               <span className="mr-badge">Admin</span>
