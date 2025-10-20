@@ -1,17 +1,16 @@
 // src/pages/About.jsx
 import React, { useEffect } from "react";
-import Footer from "../components/Footer";
 
 export default function About() {
   useEffect(() => {
-    // Reuse same animation logic as Home
+    // Scroll animation (same as Home)
     const animator = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("animate-in");
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.5 }
     );
 
     document
@@ -21,58 +20,122 @@ export default function About() {
     return () => animator.disconnect();
   }, []);
 
+  // Inline styles for sections
+  const sectionStyle = (bg) => ({
+    backgroundImage: `url(${bg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "100vh",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+    textAlign: "center",
+    padding: "2rem",
+    transition: "opacity 1s ease, transform 1s ease",
+    opacity: 0,
+    transform: "translateY(30px)",
+  });
+
+  const overlayStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 1,
+  };
+
+  const contentStyle = {
+    position: "relative",
+    zIndex: 2,
+    maxWidth: "800px",
+  };
+
+  const animateInStyle = `
+    .animate-in {
+      opacity: 1 !important;
+      transform: translateY(0px) !important;
+    }
+  `;
+
   return (
-    <div className="page-wrapper">
-      {/* Header section */}
-      <section className="fullpage-section about-hero animate-on-scroll">
-        <div className="content-center">
-          <h1 className="welcome">About MastoRide</h1>
-          <p className="lead">
-            Empowering students with safe, affordable, and trusted rides—built
-            by the community, for the community.
+    <>
+      {/* Inline animation style */}
+      <style>{animateInStyle}</style>
+
+      {/* Hero Section */}
+      <section
+        className="fullpage-section animate-on-scroll"
+        style={sectionStyle("/assets/about-hero.jpg")}
+      >
+        <div style={overlayStyle}></div>
+        <div style={contentStyle}>
+          <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>
+            About MastoRide
+          </h1>
+          <p style={{ fontSize: "1.25rem", lineHeight: "1.7" }}>
+            Safe, affordable, and trusted rides — built by students, for
+            students.
           </p>
         </div>
       </section>
 
-      {/* Mission section */}
-      <section className="fullpage-section about-mission animate-on-scroll">
-        <div className="content-center">
-          <h2>Our Mission</h2>
-          <p>
-            MastoRide was founded with a simple goal: make student travel safer,
-            cheaper, and more connected. By linking verified students from
-            nearby universities, we create a reliable network of shared rides
-            that reduce costs and build community.
+      {/* Mission Section */}
+      <section
+        className="fullpage-section animate-on-scroll"
+        style={sectionStyle("/assets/about-mission.jpg")}
+      >
+        <div style={overlayStyle}></div>
+        <div style={contentStyle}>
+          <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+            Our Mission
+          </h2>
+          <p style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
+            To make student travel safer and more connected by providing a
+            verified network for sharing rides between campuses. Every trip you
+            take helps reduce carbon footprint while building a stronger student
+            community.
           </p>
         </div>
       </section>
 
-      {/* Vision section */}
-      <section className="fullpage-section about-vision animate-on-scroll">
-        <div className="content-center">
-          <h2>Our Vision</h2>
-          <p>
-            We envision a future where sustainable mobility is accessible to
-            every student—minimizing carbon footprint, enhancing safety, and
-            encouraging friendships across campuses.
+      {/* Vision Section */}
+      <section
+        className="fullpage-section animate-on-scroll"
+        style={sectionStyle("/assets/about-vision.jpg")}
+      >
+        <div style={overlayStyle}></div>
+        <div style={contentStyle}>
+          <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
+            Our Vision
+          </h2>
+          <p style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
+            We envision a future where students across the country can travel
+            freely, affordably, and safely — powered by technology that puts
+            trust and sustainability first.
           </p>
         </div>
       </section>
 
-      {/* Team section */}
-      <section className="fullpage-section about-team animate-on-scroll">
-        <div className="content-center">
-          <h2>Our Team</h2>
-          <p>
-            We’re a passionate group of students and developers dedicated to
-            making everyday travel simple and secure. From engineers to
-            designers, every member contributes to keeping your rides smooth and
-            dependable.
+      {/* Team Section */}
+      <section
+        className="fullpage-section animate-on-scroll"
+        style={sectionStyle("/assets/about-team.jpg")}
+      >
+        <div style={overlayStyle}></div>
+        <div style={contentStyle}>
+          <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Our Team</h2>
+          <p style={{ fontSize: "1.1rem", lineHeight: "1.6" }}>
+            MastoRide was created by a group of passionate developers and
+            students who believe every journey can be more than just a ride —
+            it’s a chance to connect, collaborate, and grow together.
           </p>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </>
   );
 }
