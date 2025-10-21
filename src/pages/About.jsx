@@ -1,97 +1,89 @@
 // src/pages/About.jsx
 import React, { useEffect } from "react";
-import Footer from "../components/Footer";
 
 export default function About() {
   useEffect(() => {
+    // Reuse the same scroll animation observer as Home
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) entry.target.classList.add("animate-in");
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.6 }
     );
+
     document
-      .querySelectorAll(".animate-on-scroll, .about-section")
+      .querySelectorAll(".animate-on-scroll, .fullpage-section")
       .forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="modern-about-page">
-      <main className="about-fullpage">
+      <main className="home-fullpage">
         {/* ---------- Hero Section ---------- */}
-        <section className="about-section hero-section">
+        <section className="fullpage-section hero-section animate-on-scroll">
           <div className="hero-content-center">
             <h1 className="hero-title">About MastoRide</h1>
             <p className="hero-subtitle">
-              Redefining campus and city rides with trust, technology, and transparency.
+              Making everyday travel smarter, safer, and sustainable.
             </p>
           </div>
         </section>
 
         {/* ---------- Mission Section ---------- */}
-        <section className="about-section mission-section animate-on-scroll">
+        <section className="fullpage-section home-safety animate-on-scroll">
           <div className="section-inner">
             <h2 className="section-title">Our Mission</h2>
             <p className="section-text">
-              At <strong>MastoRide</strong>, we believe commuting should be smart,
-              safe, and sustainable. What started as a small idea at a university hackathon
-              has evolved into a platform empowering students and professionals
-              to travel affordably while reducing environmental impact.
+              MastoRide was born from a student project to revolutionize urban
+              and campus commuting. Our goal is simple — connect people through
+              reliable, eco-friendly rides while cutting costs and emissions.
             </p>
           </div>
         </section>
 
         {/* ---------- Story Section ---------- */}
-        <section className="about-section story-section animate-on-scroll">
+        <section className="fullpage-section home-affordable animate-on-scroll">
           <div className="section-inner">
             <h2 className="section-title">Our Story</h2>
             <p className="section-text">
-              Founded by passionate students, MastoRide was built with one mission —
-              to make transportation reliable and human again. We grew from a simple
-              carpool idea to a connected ecosystem that helps people share rides,
-              save costs, and meet new people safely.
-            </p>
-            <p className="section-text">
-              What drives us is not just movement — it’s connection, innovation, and
-              community. We’re proud to bring technology and empathy together on every ride.
+              What started as a late-night hackathon idea grew into a movement.
+              We noticed thousands of students and professionals facing daily
+              travel hassles — so we built a smarter way to share rides and
+              connect communities. From small beginnings, MastoRide has grown
+              into a trusted network of riders, drivers, and dreamers.
             </p>
           </div>
         </section>
 
         {/* ---------- Values Section ---------- */}
-        <section className="about-section values-section animate-on-scroll">
+        <section className="fullpage-section animate-on-scroll">
           <div className="section-inner">
-            <h2 className="section-title">Our Core Values</h2>
+            <h2 className="section-title">Our Values</h2>
             <ul className="values-list">
-              <li><strong>Safety First:</strong> Every user is verified and rides are monitored securely.</li>
-              <li><strong>Affordability:</strong> Shared rides mean shared savings — for everyone.</li>
-              <li><strong>Sustainability:</strong> Fewer cars, cleaner air, better tomorrow.</li>
-              <li><strong>Community:</strong> We connect people, not just locations.</li>
+              <li><strong>Safety:</strong> Verified users, monitored rides.</li>
+              <li><strong>Affordability:</strong> Shared rides = shared savings.</li>
+              <li><strong>Sustainability:</strong> Every shared ride reduces carbon footprint.</li>
+              <li><strong>Innovation:</strong> We combine AI and data to make travel seamless.</li>
             </ul>
           </div>
         </section>
 
         {/* ---------- Future Section ---------- */}
-        <section className="about-section future-section animate-on-scroll">
+        <section className="fullpage-section animate-on-scroll">
           <div className="section-inner">
             <h2 className="section-title">The Road Ahead</h2>
             <p className="section-text">
-              MastoRide is on a journey to expand across campuses and cities,
-              integrating smart route algorithms, electric mobility, and real-time ride insights.
-              Every update takes us closer to a future where travel feels effortless, safe,
-              and sustainable.
-            </p>
-            <p className="section-text">
-              Join us as we shape the future of mobility — one MastoRide at a time.
+              We’re expanding MastoRide to universities, companies, and cities,
+              bringing electric vehicle integration and intelligent route
+              suggestions. Our journey continues — towards a future where every
+              ride makes a difference.
             </p>
           </div>
         </section>
-
-        {/* ---------- Footer ---------- */}
-        <Footer />
       </main>
     </div>
   );
